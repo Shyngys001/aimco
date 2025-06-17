@@ -7,6 +7,8 @@ import asyncio
 import logging
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 from aiogram import Bot, Dispatcher, F, types
 from aiogram.filters import Command, StateFilter
@@ -206,7 +208,7 @@ async def need_egg_text(cb: types.CallbackQuery):
 
 @dp.message(StateFilter(Flow.wait_word1))
 async def check_egg(m: types.Message, state: FSMContext):
-    if m.text.strip() != "балапан":
+    if m.text.strip() != "🐣":
         await m.answer("Жасырын сөз дұрыс емес. Қайтадан «тырысып» жіберіңіз.")
         return
 
